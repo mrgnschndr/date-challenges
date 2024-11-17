@@ -5,8 +5,23 @@
 // map through each array index and calculate the number of days since each date. Use `Date` objects, subtraction for
 // date difference, and `Math.floor` to round to whole days.
 function calculateDaysSince(datesArray) {
-    
+    datesArray.map((object) => {
+        let start = new Date(object.startDate); // date from array in milliseconds
+        let today = new Date(); // today's date in milliseconds
+        if (start == false || today == false) {
+            return NaN;
+        }
+        let difference = today - start; // calc difference in milliseconds
+        return daysSince = [Math.floor(difference / (1000 * 60 * 60 * 24))];
+    });
+    return daysSince;
 }
+
+// Successful console.log test below!
+// let start = new Date("2023-01-01"); // date from array in milliseconds
+// let today = Date.now(); // today's date in milliseconds
+// let difference = today - start; // calc difference in milliseconds
+// console.log(Math.floor(difference / (1000 * 60 * 60 * 24)));
 
 // Challenge 2: Filter Recent Dates
 // Given an array of date strings, return only the dates within the past 30 days.
@@ -88,20 +103,20 @@ function getDayOfWeekForDates(datesArray) {
 
 module.exports = {
     calculateDaysSince,
-    filterRecentDates,
-    getMonthNames,
-    sortDatesAscending,
-    calculateAges,
-    groupDatesByYear,
-    findFirstMonday,
-    checkLeapYears,
-    addDaysToDates,
-    getDayOfWeekForDates,
-    findMostRecentDate,
-    getLastDayOfMonth,
-    calculateDuration,
-    listDatesOfWeekdayInMonth,
-    getDateDifferences
+    // filterRecentDates,
+    // getMonthNames,
+    // sortDatesAscending,
+    // calculateAges,
+    // groupDatesByYear,
+    // findFirstMonday,
+    // checkLeapYears,
+    // addDaysToDates,
+    // getDayOfWeekForDates,
+    // findMostRecentDate,
+    // getLastDayOfMonth,
+    // calculateDuration,
+    // listDatesOfWeekdayInMonth,
+    // getDateDifferences
 }
 
 
