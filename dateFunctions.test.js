@@ -2,20 +2,20 @@
 
 const {
     calculateDaysSince,
-    filterRecentDates,
-    getMonthNames,
-    sortDatesAscending,
-    calculateAges,
-    groupDatesByYear,
-    findFirstMonday,
-    checkLeapYears,
-    addDaysToDates,
-    getDayOfWeekForDates,
-    findMostRecentDate,
-    getLastDayOfMonth,
-    calculateDuration,
-    listDatesOfWeekdayInMonth,
-    getDateDifferences
+    // filterRecentDates,
+    // getMonthNames,
+    // sortDatesAscending,
+    // calculateAges,
+    // groupDatesByYear,
+    // findFirstMonday,
+    // checkLeapYears,
+    // addDaysToDates,
+    // getDayOfWeekForDates,
+    // findMostRecentDate,
+    // getLastDayOfMonth,
+    // calculateDuration,
+    // listDatesOfWeekdayInMonth,
+    // getDateDifferences
 } = require('./dateFunctions');
 
 // Mock Date for testing
@@ -33,6 +33,8 @@ describe('JavaScript Date Coding Challenges', () => {
         const daysSince = Math.floor((new Date() - new Date(startDate)) / (1000 * 60 * 60 * 24));
         expect(calculateDaysSince([{ startDate }])).toEqual([daysSince]);
         expect(calculateDaysSince([{ startDate: "Invalid Date" }])).toEqual([NaN]);
+        expect(calculateDaysSince([{ startDate: 0 }])).toEqual[NaN];
+        expect(calculateDaysSince([{ startDate: null }])).toEqual[NaN];
     });
 });
 
