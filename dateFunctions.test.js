@@ -13,7 +13,7 @@ const {
     getDayOfWeekForDates,
     findMostRecentDate,
     getLastDayOfMonth,
-    // calculateDuration,
+    calculateDuration,
     // listDatesOfWeekdayInMonth,
     // getDateDifferences
 } = require('./dateFunctions');
@@ -179,6 +179,12 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(getLastDayOfMonth(2024, 3)).toBe('Tue Apr 30 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
         expect(getLastDayOfMonth('string', 3)).toBe('Invalid year or month.');
         expect(getLastDayOfMonth()).toBe('Invalid year or month.');
+    })
+
+    test('calculateDuration', () => {
+        expect(calculateDuration('2024-11-2', '2024-11-18')).toEqual('Days between: 15, Hours between: 378, Minutes between: 22680');
+        expect(calculateDuration('2024-11-2')).toEqual('Make sure you input 2 dates.');
+        expect(calculateDuration()).toEqual('Make sure you input 2 dates.');
     })
 });
 

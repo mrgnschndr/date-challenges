@@ -332,8 +332,20 @@ function getLastDayOfMonth(year, month) {
 // Challenge 13: Calculate Duration Between Two Dates
 // Given two dates, return the duration between them in days, hours, and minutes.
 // Use subtraction and division to calculate differences in days, hours, and minutes.
+function calculateDuration(date1, date2) {
+    if (!date1 || !date2) {
+        return 'Make sure you input 2 dates.';
+    }
+    date1 = (new Date(date1)).valueOf();
+    date2 = (new Date(date2)).valueOf();
+    difference = Math.abs(date2 - date1);
+    days = Math.floor(difference / (1000 * 60 * 60 * 24));
+    hours = Math.floor(difference / (1000 * 60 * 60));
+    minutes = Math.floor(difference / (1000 * 60));
+    return `Days between: ${days}, Hours between: ${hours}, Minutes between: ${minutes}`;
+}
 
-
+console.log(calculateDuration('2024-11-2', '2024-11-18'));
 // Challenge 14: List Dates of Specific Weekday in a Month
 // Given a year, a month, and a weekday, return an array of all dates that fall on that weekday in that month.
 // Use a loop with `getDay` to check each date until the end of the month.
@@ -357,7 +369,7 @@ module.exports = {
     getDayOfWeekForDates,
     findMostRecentDate,
     getLastDayOfMonth,
-    // calculateDuration,
+    calculateDuration,
     // listDatesOfWeekdayInMonth,
     // getDateDifferences
 }
