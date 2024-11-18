@@ -2,7 +2,7 @@
 
 const {
     calculateDaysSince,
-    // filterRecentDates,
+    filterRecentDates,
     getMonthNames,
     sortDatesAscending,
     calculateAges,
@@ -37,7 +37,17 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(calculateDaysSince([{ startDate: null }])).toEqual[NaN];
     });
 
-
+    test('filterRecentDates', () => {
+        const datesArray = [
+            new Date(2023, 9, 13),  
+            new Date(2024, 2, 20),  
+            new Date(2023, 9, 3),  
+            new Date(2024, 7, 5),   
+            new Date(2024, 10, 25) 
+          ];
+        expect(filterRecentDates('string')).toBe('Input is not an array.');
+        expect(filterRecentDates(datesArray)).toEqual(['Fri Oct 13 2023 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Tue Oct 03 2023 00:00:00 GMT-0600 (Mountain Daylight Time)']);
+    });
 
     test('getMonthNames', () => { // Challenge 3
         const datesArray = [
