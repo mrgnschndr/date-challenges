@@ -9,7 +9,7 @@ const {
     groupDatesByYear,
     findFirstMonday,
     checkLeapYears,
-    // addDaysToDates,
+    addDaysToDates,
     // getDayOfWeekForDates,
     // findMostRecentDate,
     // getLastDayOfMonth,
@@ -113,18 +113,34 @@ describe('JavaScript Date Coding Challenges', () => {
             new Date(2023, 2, 28), 3])).toEqual('Invalid Date');
     });
 
-    test('findFirstMonday', () => {
+    test('findFirstMonday', () => { // Challenge 7
         expect(findFirstMonday(2024)).toBe('Missing year or month.');
         expect(findFirstMonday(2024, 10)).toBe(4); // Past date
         expect(findFirstMonday(2024, 11)).toBe(2); // Future date
         expect(findFirstMonday([1], ['string'])).toBe('Invalid year or month.'); // Invalid data type
     });
 
-    test('checkLeapYears', () => {
+    test('checkLeapYears', () => { // Challenge 8
         expect(checkLeapYears([1900, 2000, 2024, 2023, 1777])).toEqual([false, true, true, false, false]);
         expect(checkLeapYears('string')).toEqual('Input is not an array.');
         expect(checkLeapYears([2000, 1800, 'string', 1777])).toEqual([true, false, 'Invalid Date', false]);
     })
+
+    test('addDaysToDates', () => {
+        const datesArray = [
+            new Date(2024, 4, 12), 
+            new Date(2024, 7, 20),
+            new Date(2023, 2, 28),
+            new Date(2024, 5, 28),
+            new Date(1997, 6, 20),
+            new Date(1870, 4, 22),
+            new Date(1997, 1, 21),
+        ];
+        expect(addDaysToDates('string')).toEqual('Input is not an array.');
+        expect(addDaysToDates(datesArray, 'string')).toEqual('Invalid number of days.');
+        expect(addDaysToDates(datesArray, 2)).toEqual(['Tue May 14 2024', 'Thu Aug 22 2024', 'Thu Mar 30 2023', 'Sun Jun 30 2024', 'Tue Jul 22 1997', 'Tue May 24 1870', 'Sun Feb 23 1997'])
+    })
+
 });
 
 
