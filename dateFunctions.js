@@ -145,6 +145,38 @@ function calculateAges(array) {
 // Given an array of `Date` objects, return an object where each year is a key, and the value is an array of dates from that year.
 // Use `reduce` to build an object with years as keys and `push` to add dates to the corresponding arrays.
 
+function groupDatesByYear(datesArray) {
+    if (!(Array.isArray(datesArray))) {
+        return 'Input is not an array.';
+    }
+    return datesArray.reduce((ourObj, currentYear) => {
+        if (!(Object.prototype.toString.call(currentYear) === '[object Date]')) {
+            return 'Invalid Date';
+        }
+        let year = currentYear.getFullYear();
+        let date = currentYear.getDate();
+        console.log('Year', year, 'Date', date);
+        if (!(ourObj[year])) {
+            ourObj[year] = [];
+        }
+        ourObj[year].push(date);
+        return ourObj;
+        // newObj.year = []; This works to add to array
+        // newObj.year.push(date);
+    }, {}) // Optional initial value for reduce function);
+}
+
+const datesArray = [
+    new Date(2024, 4, 12), 
+    new Date(2024, 7, 20),
+    new Date(2023, 2, 28),
+    new Date(2024, 5, 28),
+    new Date(1997, 6, 20),
+    new Date(1870, 4, 22),
+    new Date(1997, 1, 21),
+  ];
+
+  console.log(groupDatesByYear(datesArray));
 
 // Challenge 7: Find First Monday of Month
 // Given a year and a month, find the date of the first Monday of that month.
@@ -200,7 +232,7 @@ module.exports = {
     getMonthNames,
     sortDatesAscending,
     calculateAges,
-    // groupDatesByYear,
+    groupDatesByYear,
     // findFirstMonday,
     // checkLeapYears,
     // addDaysToDates,
