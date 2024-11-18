@@ -7,7 +7,7 @@ const {
     sortDatesAscending,
     calculateAges,
     groupDatesByYear,
-    // findFirstMonday,
+    findFirstMonday,
     // checkLeapYears,
     // addDaysToDates,
     // getDayOfWeekForDates,
@@ -111,6 +111,13 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(groupDatesByYear([new Date(2024, 4, 12), 
             new Date(2024, 7, 20),
             new Date(2023, 2, 28), 3])).toEqual('Invalid Date');
+    });
+
+    test('findFirstMonday', () => {
+        expect(findFirstMonday(2024)).toBe('Missing year or month.');
+        expect(findFirstMonday(2024, 10)).toBe(4); // Past date
+        expect(findFirstMonday(2024, 11)).toBe(2); // Future date
+        expect(findFirstMonday([1], ['string'])).toBe('Invalid year or month.'); // Invalid data type
     });
 
     
