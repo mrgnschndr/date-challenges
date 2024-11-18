@@ -4,7 +4,7 @@ const {
     calculateDaysSince,
     // filterRecentDates,
     getMonthNames,
-    // sortDatesAscending,
+    sortDatesAscending,
     // calculateAges,
     // groupDatesByYear,
     // findFirstMonday,
@@ -39,7 +39,7 @@ describe('JavaScript Date Coding Challenges', () => {
 
 
 
-    test('getMonthNames', () => {
+    test('getMonthNames', () => { // Challenge 3
         const datesArray = [
             new Date(2024, 0, 15),  // January 15, 2024
             new Date(2024, 2, 20),  // March 20, 2024
@@ -56,7 +56,29 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(getMonthNames([
             new Date(2024, 7, 20),
             'hello'
-        ])).toEqual(['August', null]); // Not a date object
+        ])).toEqual(['August', 'Invalid date']); // Not a date object
+    });
+
+    test('sortDatesAscending', () => {
+        const datesArray = [
+            new Date(2024, 0, 15),  // January 15, 2024
+            new Date(2024, 2, 20),  // March 20, 2024
+            new Date(2024, 4, 10),  // May 10, 2024
+            new Date(2024, 7, 5),   // August 5, 2024
+            new Date(2024, 10, 25)
+          ];
+        const invalidDatesArray = [
+            new Date(2024, 0, 15),  // January 15, 2024
+            new Date(2024, 2, 20),  // March 20, 2024
+            new Date(2024, 4, 10),  // May 10, 2024
+            new Date(2024, 7, 5),   // August 5, 2024
+            'string',
+            'string',
+            new Date(2024, 10, 25),
+        ];
+        expect(sortDatesAscending(datesArray)).toEqual(['Mon Jan 15 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Mar 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Fri May 10 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Aug 05 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Nov 25 2024 00:00:00 GMT-0700 (Mountain Standard Time)']); // All valid dates
+        expect(sortDatesAscending('string')).toEqual('Input is not an array.');
+        expect(sortDatesAscending(invalidDatesArray)).toEqual(['Mon Jan 15 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Mar 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Fri May 10 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Aug 05 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Nov 25 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Invalid Date', 'Invalid Date']);
     });
 });
 
