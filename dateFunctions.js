@@ -206,7 +206,25 @@ function findFirstMonday(year, month) {
 // Challenge 8: Check Leap Year
 // Given an array of years, return an array of booleans indicating if each year is a leap year.
 // Use modulus to check divisibility rules for leap years.
+function checkLeapYears(yearsArray) {
+    if (!(Array.isArray(yearsArray))) {
+        return 'Input is not an array.';
+    }
+    return yearsArray.map((year) => {
+        if (isNaN(year)) {
+            return 'Invalid Date';
+        } else if (!(year % 100) && year % 400) {
+            return false;
+        } else if (!(year % 4)) {
+            return true;
+        } else {
+            return false;
+        }
+    })
+}
 
+// Test helper below - successful console.log!
+// console.log(checkLeapYears([1900, 2024, 1777, 2000, 100]));
 
 // Challenge 9: Add Days to Dates
 // Given an array of `Date` objects and a number of days, return a new array with each date incremented by the given number of days.
@@ -254,7 +272,7 @@ module.exports = {
     calculateAges,
     groupDatesByYear,
     findFirstMonday,
-    // checkLeapYears,
+    checkLeapYears,
     // addDaysToDates,
     // getDayOfWeekForDates,
     // findMostRecentDate,
