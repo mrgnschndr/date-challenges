@@ -27,7 +27,29 @@ function calculateDaysSince(datesArray) {
 // Given an array of date strings, return only the dates within the past 30 days.
 // Use `Date` object and the `filter` array method to find dates between 30 days ago and today.
 
+function filterRecentDates(datesArray) {
+    if (!(Array.isArray(datesArray))) {
+        return 'Input is not an array.';
+    }
+    let today = new Date('2023-10-15T00:00:00Z');
+    let newArr = datesArray.filter(check30);
+    return newArr.map((date) => (date.toString()));
+    function check30(date) {
+        let checkDate = new Date(date).setUTCHours(0, 0, 0);
+        let difference = (today - checkDate) / (1000 * 60 * 60 * 24);
+        return difference <= 30 && difference >= 0;
+    }
+}
 
+const datesArray = [
+    new Date(2023, 9, 13),  
+    new Date(2024, 2, 20),  
+    new Date(2023, 9, 3),  
+    new Date(2024, 7, 5),   
+    new Date(2024, 10, 25) 
+  ];
+
+console.log(filterRecentDates(datesArray));
 
 // Challenge 3: Get Month Names
 // Given an array of `Date` objects, return an array of month names for each date.
@@ -404,7 +426,7 @@ function getDateDifferences(dates) {
 
 module.exports = {
     calculateDaysSince,
-    // filterRecentDates,
+    filterRecentDates,
     getMonthNames,
     sortDatesAscending,
     calculateAges,
