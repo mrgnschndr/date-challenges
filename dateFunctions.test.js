@@ -15,7 +15,7 @@ const {
     getLastDayOfMonth,
     calculateDuration,
     listDatesOfWeekdayInMonth,
-    // getDateDifferences
+    getDateDifferences
 } = require('./dateFunctions');
 
 // Mock Date for testing
@@ -190,6 +190,20 @@ describe('JavaScript Date Coding Challenges', () => {
     test('listDatesOfWeekdayInMonth', () => {
         expect(listDatesOfWeekdayInMonth(2024, 10, 3)).toEqual(['Wed Nov 06 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 13 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 20 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 27 2024 00:00:00 GMT-0700 (Mountain Standard Time)']);
         expect(listDatesOfWeekdayInMonth('string', 10, 3)).toEqual('Invalid Date');
+    })
+
+    test('getDateDifferences', () => {
+        const dates = {
+            date1: "2024-11-01",
+            date2: "2024-10-15",
+            date3: "2024-11-10",
+            date4: "2023-12-01",
+            date5: "2024-11-05"
+          };
+        expect(getDateDifferences('string')).toBe('Please input an object.');
+        expect(getDateDifferences(dates)).toEqual({date1: 383, date2: 366, date3: 392, date4: 47, date5: 387});
+        expect(getDateDifferences({date: "2023-10-17"})).toEqual({date: 2});
+        expect(getDateDifferences({date: "2023-10-17", date2: "string"})).toEqual({date: 2, date2: 'Invalid Date'});
     })
 });
 

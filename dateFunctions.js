@@ -374,6 +374,32 @@ function listDatesOfWeekdayInMonth(year, month, weekday) {
 // Challenge 15: Get Date Differences for Object Properties
 // Given an object with properties containing date strings, return a new object with the difference in days for each date property relative to today.
 // Use `Object.entries`, `map`, and `Math.floor` to calculate days for each date.
+function getDateDifferences(dates) {
+    if (typeof(dates) != 'object') {
+        return 'Please input an object.';
+    }
+    const today = new Date().setUTCHours(0, 0, 0);
+    // let newMap = new Map(Object.entries(dates));
+    let newObj = {};
+    for (let [name, date] of Object.entries(dates)) {
+        let newDate = new Date(date).setUTCHours(0, 0, 0);
+        if (isNaN(newDate)) {
+            newObj[name] = 'Invalid Date';
+        } else {
+        let difference = Math.floor(((Math.abs(today - newDate))) / (1000 * 60 * 60 * 24));
+        newObj[name] = difference;
+    }}
+    return newObj;
+}
+
+// const dates = {
+//     date1: "2024-11-01",
+//     date2: "2024-10-15",
+//     date3: "2024-11-10",
+//     date4: "2023-12-01",
+//     date5: "2024-11-05"
+//   };
+// console.log(getDateDifferences(dates));
 
 
 module.exports = {
@@ -391,7 +417,7 @@ module.exports = {
     getLastDayOfMonth,
     calculateDuration,
     listDatesOfWeekdayInMonth,
-    // getDateDifferences
+    getDateDifferences
 }
 
 
