@@ -261,8 +261,30 @@ function addDaysToDates(datesArray, numDays) {
 // Use `getDay` and map each day index to a day name array.
 function getDayOfWeekForDates(datesArray) {
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-   
-}
+    if (!(Array.isArray(datesArray))) {
+        return 'Input is not an array.';
+    }
+    return datesArray.map((date) => {
+        if (!(Object.prototype.toString.call(date) === '[object Date]')) {
+            return 'Invalid Date';
+        } else {
+            console.log(date);
+            let index = date.getDay();
+            return daysOfWeek[index];
+    }});
+};
+
+// Test helper below - successful console.log!
+// const datesArray = [
+//     new Date(2024, 4, 12), 
+//     new Date(2024, 7, 20),
+//     new Date(2023, 2, 28),
+//     new Date(2024, 5, 28),
+//     new Date(1997, 6, 20),
+//     new Date(1870, 4, 22),
+//     new Date(1997, 1, 21),
+// ];
+// console.log(getDayOfWeekForDates(datesArray));
 
 // Challenge 11: Find Most Recent Date
 // Given an array of `Date` objects, return the most recent date.
@@ -299,7 +321,7 @@ module.exports = {
     findFirstMonday,
     checkLeapYears,
     addDaysToDates,
-    // getDayOfWeekForDates,
+    getDayOfWeekForDates,
     // findMostRecentDate,
     // getLastDayOfMonth,
     // calculateDuration,

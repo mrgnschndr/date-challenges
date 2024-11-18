@@ -10,7 +10,7 @@ const {
     findFirstMonday,
     checkLeapYears,
     addDaysToDates,
-    // getDayOfWeekForDates,
+    getDayOfWeekForDates,
     // findMostRecentDate,
     // getLastDayOfMonth,
     // calculateDuration,
@@ -141,6 +141,24 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(addDaysToDates(datesArray, 2)).toEqual(['Tue May 14 2024', 'Thu Aug 22 2024', 'Thu Mar 30 2023', 'Sun Jun 30 2024', 'Tue Jul 22 1997', 'Tue May 24 1870', 'Sun Feb 23 1997'])
     })
 
+    test('getDayOfWeekForDates', () => {
+        const datesArray = [
+            new Date(2024, 4, 12), 
+            new Date(2024, 7, 20),
+            new Date(2023, 2, 28),
+            new Date(2024, 5, 28),
+            new Date(1997, 6, 20),
+            new Date(1870, 4, 22),
+            new Date(1997, 1, 21),
+        ];
+        expect(getDayOfWeekForDates(datesArray)).toEqual(['Sunday', 'Tuesday', 'Tuesday', 'Friday', 'Sunday', 'Sunday', 'Friday']);
+        expect(getDayOfWeekForDates('string')).toEqual('Input is not an array.');
+        expect(getDayOfWeekForDates([
+            new Date(2024, 4, 12),
+            "2024-7-20",
+            new Date(2023, 2, 28)
+        ])).toEqual(['Sunday', 'Invalid Date', 'Tuesday']);
+    })
 });
 
 
