@@ -8,7 +8,7 @@ const {
     calculateAges,
     groupDatesByYear,
     findFirstMonday,
-    // checkLeapYears,
+    checkLeapYears,
     // addDaysToDates,
     // getDayOfWeekForDates,
     // findMostRecentDate,
@@ -120,7 +120,11 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(findFirstMonday([1], ['string'])).toBe('Invalid year or month.'); // Invalid data type
     });
 
-    
+    test('checkLeapYears', () => {
+        expect(checkLeapYears([1900, 2000, 2024, 2023, 1777])).toEqual([false, true, true, false, false]);
+        expect(checkLeapYears('string')).toEqual('Input is not an array.');
+        expect(checkLeapYears([2000, 1800, 'string', 1777])).toEqual([true, false, 'Invalid Date', false]);
+    })
 });
 
 
