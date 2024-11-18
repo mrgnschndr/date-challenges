@@ -345,10 +345,30 @@ function calculateDuration(date1, date2) {
     return `Days between: ${days}, Hours between: ${hours}, Minutes between: ${minutes}`;
 }
 
-console.log(calculateDuration('2024-11-2', '2024-11-18'));
+// console.log(calculateDuration('2024-11-2', '2024-11-18'));
+
 // Challenge 14: List Dates of Specific Weekday in a Month
 // Given a year, a month, and a weekday, return an array of all dates that fall on that weekday in that month.
 // Use a loop with `getDay` to check each date until the end of the month.
+function listDatesOfWeekdayInMonth(year, month, weekday) {
+    if (isNaN(year) || isNaN(month) || isNaN(weekday)) {
+        return 'Invalid Date';
+    }
+    let date = new Date(year, month, 1);
+    let lastDay = (new Date(year, month + 1, 0)).getDate();
+    let newArr = [];
+    for (i = 0; i < lastDay; i++) {
+        let checkDay = date.getDay();
+        if (checkDay == weekday) {
+            newArr.push(new Date(date).toString());
+        }
+        date.setDate(i + 1);
+    }
+    return newArr;
+}
+
+// console.log(listDatesOfWeekdayInMonth(2024, 10, 3));
+
 
 
 // Challenge 15: Get Date Differences for Object Properties
@@ -370,7 +390,7 @@ module.exports = {
     findMostRecentDate,
     getLastDayOfMonth,
     calculateDuration,
-    // listDatesOfWeekdayInMonth,
+    listDatesOfWeekdayInMonth,
     // getDateDifferences
 }
 

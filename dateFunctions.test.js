@@ -14,7 +14,7 @@ const {
     findMostRecentDate,
     getLastDayOfMonth,
     calculateDuration,
-    // listDatesOfWeekdayInMonth,
+    listDatesOfWeekdayInMonth,
     // getDateDifferences
 } = require('./dateFunctions');
 
@@ -185,6 +185,11 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(calculateDuration('2024-11-2', '2024-11-18')).toEqual('Days between: 15, Hours between: 378, Minutes between: 22680');
         expect(calculateDuration('2024-11-2')).toEqual('Make sure you input 2 dates.');
         expect(calculateDuration()).toEqual('Make sure you input 2 dates.');
+    })
+
+    test('listDatesOfWeekdayInMonth', () => {
+        expect(listDatesOfWeekdayInMonth(2024, 10, 3)).toEqual(['Wed Nov 06 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 13 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 20 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 27 2024 00:00:00 GMT-0700 (Mountain Standard Time)']);
+        expect(listDatesOfWeekdayInMonth('string', 10, 3)).toEqual('Invalid Date');
     })
 });
 
