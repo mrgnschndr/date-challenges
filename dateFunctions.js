@@ -319,6 +319,14 @@ function findMostRecentDate(datesArray) {
 // Challenge 12: Get Last Day of Month
 // Given a year and month, return the last day of the month.
 // Use `new Date(year, month + 1, 0)` to get the last day of the previous month.
+function getLastDayOfMonth(year, month) {
+    if (isNaN(year) || isNaN(month)) {
+        return 'Invalid year or month.';
+    }
+    return (new Date(year, month + 1, 0)).toString();
+}
+
+// console.log(getLastDayOfMonth(2024, 3));
 
 
 // Challenge 13: Calculate Duration Between Two Dates
@@ -348,7 +356,7 @@ module.exports = {
     addDaysToDates,
     getDayOfWeekForDates,
     findMostRecentDate,
-    // getLastDayOfMonth,
+    getLastDayOfMonth,
     // calculateDuration,
     // listDatesOfWeekdayInMonth,
     // getDateDifferences
