@@ -45,7 +45,6 @@ function getMonthNames(datesArray) {
         } else {
             newArray[place] = 'Invalid Date';
         }
-        console.log(newArray[place]);
     })
     return newArray;
 }
@@ -155,7 +154,6 @@ function groupDatesByYear(datesArray) {
         }
         let year = currentYear.getFullYear();
         let date = currentYear.getDate();
-        console.log('Year', year, 'Date', date);
         if (!(ourObj[year])) {
             ourObj[year] = [];
         }
@@ -166,21 +164,43 @@ function groupDatesByYear(datesArray) {
     }, {}) // Optional initial value for reduce function);
 }
 
-const datesArray = [
-    new Date(2024, 4, 12), 
-    new Date(2024, 7, 20),
-    new Date(2023, 2, 28),
-    new Date(2024, 5, 28),
-    new Date(1997, 6, 20),
-    new Date(1870, 4, 22),
-    new Date(1997, 1, 21),
-  ];
+// Test helper below - console.log successful!
+// const datesArray = [
+//     new Date(2024, 4, 12), 
+//     new Date(2024, 7, 20),
+//     new Date(2023, 2, 28),
+//     new Date(2024, 5, 28),
+//     new Date(1997, 6, 20),
+//     new Date(1870, 4, 22),
+//     new Date(1997, 1, 21),
+//   ];
 
-  console.log(groupDatesByYear(datesArray));
+//   console.log(groupDatesByYear(datesArray));
 
 // Challenge 7: Find First Monday of Month
 // Given a year and a month, find the date of the first Monday of that month.
 // Use a `while` loop and `getDay` to increment the date until it reaches Monday (1).
+function findFirstMonday(year, month) {
+    if (!(year) || !(month)) {
+        return 'Missing year or month.';
+    }
+    if (isNaN(year) || isNaN(month)) {
+        return 'Invalid year or month.';
+    }
+    const fullDate = new Date();
+    fullDate.setFullYear(year);
+    fullDate.setMonth(month);
+    day = 1;
+    fullDate.setDate(day);
+    while (fullDate.getDay() != 1) {
+        day += 1;
+        fullDate.setDate(day);
+    }
+    return fullDate.getDate();
+}
+
+// Test helper below - successful console.log!
+// console.log(findFirstMonday(2024));
 
 
 // Challenge 8: Check Leap Year
@@ -233,7 +253,7 @@ module.exports = {
     sortDatesAscending,
     calculateAges,
     groupDatesByYear,
-    // findFirstMonday,
+    findFirstMonday,
     // checkLeapYears,
     // addDaysToDates,
     // getDayOfWeekForDates,
