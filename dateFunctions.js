@@ -43,7 +43,7 @@ function getMonthNames(datesArray) {
             let monthNum = date.getMonth();
             newArray[place] = monthNames[monthNum];
         } else {
-            newArray[place] = 'Invalid date';
+            newArray[place] = 'Invalid Date';
         }
         console.log(newArray[place]);
     })
@@ -99,7 +99,47 @@ function sortDatesAscending(datesArray) {
 // Given an array of birthdates as strings (e.g., "2000-05-10"), return an array of ages.
 // Use `getFullYear` and `getMonth` to compare current date with birthdate, accounting for past birthdays.
 
+function calculateAges(array) {
+    if (!(Array.isArray(array))) {
+        return 'Input is not an array.';
+    }
+    let today = new Date();
+    let todayYear = today.getFullYear();
+    let todayMonth = today.getMonth();
+    let todayDate = today.getDate();
+    let adjustYear;
+    return ageArr = array.map((birthdate) => {
+        if (typeof(birthdate) != 'string' || isNaN(new Date(birthdate))) {
+            return 'Invalid Date';
+        }
+        let birthYear = (new Date(birthdate)).getFullYear();
+        let birthMonth = (new Date(birthdate)).getMonth();
+        if (todayMonth > birthMonth) {
+            adjustYear = 0;
+        } else if (todayMonth < birthMonth) {
+            adjustYear = -1;
+        } else {
+            let birthDate = (new Date(birthdate)).getDate();
+            if (todayDate >= birthDate) {
+                adjustYear = 0;
+            } else {
+                adjustYear = -1;
+            }}
+        return (todayYear - birthYear + adjustYear);
+    })
+}
 
+// Test helpers below - successful console.log!
+// const array = [
+//     "1990-01-15",  // January 15, 1990
+//     "1985-03-20",  // March 20, 1985
+//     "2000-05-10",  // May 10, 2000
+//     "1995-08-05",  // August 5, 1995
+//     "1992-11-25",   // November 25, 1992
+//     "1997-06-20"
+//   ];
+
+// console.log(calculateAges(array));
 
 // Challenge 6: Group Dates by Year
 // Given an array of `Date` objects, return an object where each year is a key, and the value is an array of dates from that year.
@@ -159,7 +199,7 @@ module.exports = {
     // filterRecentDates,
     getMonthNames,
     sortDatesAscending,
-    // calculateAges,
+    calculateAges,
     // groupDatesByYear,
     // findFirstMonday,
     // checkLeapYears,
