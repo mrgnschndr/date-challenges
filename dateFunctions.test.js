@@ -12,7 +12,7 @@ const {
     addDaysToDates,
     getDayOfWeekForDates,
     findMostRecentDate,
-    // getLastDayOfMonth,
+    getLastDayOfMonth,
     // calculateDuration,
     // listDatesOfWeekdayInMonth,
     // getDateDifferences
@@ -173,6 +173,12 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(findMostRecentDate(datesArray)).toBe('Tue Aug 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
         expect(findMostRecentDate('string')).toBe('Input is not an array.');
         expect(findMostRecentDate()).toBe('Input is not an array.');
+    })
+
+    test('getLastDayOfMonth', () => {
+        expect(getLastDayOfMonth(2024, 3)).toBe('Tue Apr 30 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
+        expect(getLastDayOfMonth('string', 3)).toBe('Invalid year or month.');
+        expect(getLastDayOfMonth()).toBe('Invalid year or month.');
     })
 });
 
