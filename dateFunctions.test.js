@@ -6,7 +6,7 @@ const {
     getMonthNames,
     sortDatesAscending,
     calculateAges,
-    // groupDatesByYear,
+    groupDatesByYear,
     // findFirstMonday,
     // checkLeapYears,
     // addDaysToDates,
@@ -95,6 +95,25 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(calculateAges(["1997-06-20", 2])).toEqual([26, 'Invalid Date']);
         expect(calculateAges(['string'])).toEqual(['Invalid Date']);
     });
+
+    test('groupDatesByYear', () => {
+        const datesArray = [
+            new Date(2024, 4, 12), 
+            new Date(2024, 7, 20),
+            new Date(2023, 2, 28),
+            new Date(2024, 5, 28),
+            new Date(1997, 6, 20),
+            new Date(1870, 4, 22),
+            new Date(1997, 1, 21),
+          ];
+        expect(groupDatesByYear('string')).toEqual('Input is not an array.');
+        expect(groupDatesByYear(datesArray)).toEqual({2024: [12, 20, 28], 2023: [28], 1997: [20, 21], 1870: [22]});
+        expect(groupDatesByYear([new Date(2024, 4, 12), 
+            new Date(2024, 7, 20),
+            new Date(2023, 2, 28), 3])).toEqual('Invalid Date');
+    });
+
+    
 });
 
 
