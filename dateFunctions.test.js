@@ -11,7 +11,7 @@ const {
     checkLeapYears,
     addDaysToDates,
     getDayOfWeekForDates,
-    // findMostRecentDate,
+    findMostRecentDate,
     // getLastDayOfMonth,
     // calculateDuration,
     // listDatesOfWeekdayInMonth,
@@ -158,6 +158,21 @@ describe('JavaScript Date Coding Challenges', () => {
             "2024-7-20",
             new Date(2023, 2, 28)
         ])).toEqual(['Sunday', 'Invalid Date', 'Tuesday']);
+    })
+
+    test('findMostRecentDate', () => {
+        const datesArray = [
+            new Date(2024, 4, 12), 
+            new Date(2024, 7, 20),
+            new Date(2023, 2, 28),
+            new Date(2024, 5, 28),
+            new Date(1997, 6, 20),
+            new Date(1870, 4, 22),
+            new Date(1997, 1, 21),
+        ];
+        expect(findMostRecentDate(datesArray)).toBe('Tue Aug 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
+        expect(findMostRecentDate('string')).toBe('Input is not an array.');
+        expect(findMostRecentDate()).toBe('Input is not an array.');
     })
 });
 
