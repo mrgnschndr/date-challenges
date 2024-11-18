@@ -41,15 +41,15 @@ function filterRecentDates(datesArray) {
     }
 }
 
-const datesArray = [
-    new Date(2023, 9, 13),  
-    new Date(2024, 2, 20),  
-    new Date(2023, 9, 3),  
-    new Date(2024, 7, 5),   
-    new Date(2024, 10, 25) 
-  ];
+// const datesArray = [
+//     new Date(2023, 9, 13),  
+//     new Date(2024, 2, 20),  
+//     new Date(2023, 9, 3),  
+//     new Date(2024, 7, 5),   
+//     new Date(2024, 10, 25) 
+//   ];
 
-console.log(filterRecentDates(datesArray));
+// console.log(filterRecentDates(datesArray));
 
 // Challenge 3: Get Month Names
 // Given an array of `Date` objects, return an array of month names for each date.
