@@ -43,7 +43,7 @@ function getMonthNames(datesArray) {
             let monthNum = date.getMonth();
             newArray[place] = monthNames[monthNum];
         } else {
-            newArray[place] = null;
+            newArray[place] = 'Invalid date';
         }
         console.log(newArray[place]);
     })
@@ -61,6 +61,39 @@ function getMonthNames(datesArray) {
 // Given an array of `Date` objects, return a new array sorted in ascending order.
 // Use `sort` method to arrange dates by time.
 
+function sortDatesAscending(datesArray) {
+    if (!(Array.isArray(datesArray))) {
+        return 'Input is not an array.';
+    }
+    newArray = [];
+    datesArray.map((date, index) => {
+        if (Object.prototype.toString.call(date) === '[object Date]') {
+            let timestamp = Date.parse(date);
+            newArray[index] = timestamp;
+        }
+    })
+    let sortedTimestamps = newArray.sort();
+    finalArray = [];
+    for (i = 0; i < sortedTimestamps.length; i++) {
+        sortedTimestamps[i] = new Date(sortedTimestamps[i]);
+        finalArray[i] = sortedTimestamps[i].toString();
+    }
+    return finalArray;
+    
+}
+
+// Test helpers below - successful console.log!
+// const datesArray = [
+//     new Date(2024, 0, 15),  // January 15, 2024
+//     new Date(2024, 2, 20),  // March 20, 2024
+//     new Date(2024, 4, 10),  // May 10, 2024
+//     new Date(2024, 7, 5),
+//     'string',
+//     'string',  // August 5, 2024
+//     new Date(2024, 10, 25),
+//   ];
+// console.log(datesArray);
+// console.log(sortDatesAscending(datesArray));
 
 // Challenge 5: Calculate Age
 // Given an array of birthdates as strings (e.g., "2000-05-10"), return an array of ages.
@@ -125,7 +158,7 @@ module.exports = {
     calculateDaysSince,
     // filterRecentDates,
     getMonthNames,
-    // sortDatesAscending,
+    sortDatesAscending,
     // calculateAges,
     // groupDatesByYear,
     // findFirstMonday,
