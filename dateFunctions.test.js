@@ -37,7 +37,7 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(calculateDaysSince([{ startDate: null }])).toEqual[NaN];
     });
 
-    test('filterRecentDates', () => {
+    test('filterRecentDates', () => { // Challenge 2
         const datesArray = [
             new Date(2023, 9, 13),  
             new Date(2024, 2, 20),  
@@ -46,7 +46,7 @@ describe('JavaScript Date Coding Challenges', () => {
             new Date(2024, 10, 25) 
           ];
         expect(filterRecentDates('string')).toBe('Input is not an array.');
-        expect(filterRecentDates(datesArray)).toEqual(['Fri Oct 13 2023 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Tue Oct 03 2023 00:00:00 GMT-0600 (Mountain Daylight Time)']);
+        expect(filterRecentDates(datesArray)).toEqual(["Fri Oct 13 2023", "Tue Oct 03 2023"]);
     });
 
     test('getMonthNames', () => { // Challenge 3
@@ -86,12 +86,12 @@ describe('JavaScript Date Coding Challenges', () => {
             'string',
             new Date(2024, 10, 25),
         ];
-        expect(sortDatesAscending(datesArray)).toEqual(['Mon Jan 15 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Mar 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Fri May 10 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Aug 05 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Nov 25 2024 00:00:00 GMT-0700 (Mountain Standard Time)']); // All valid dates
+        expect(sortDatesAscending(datesArray)).toEqual(["Mon Jan 15 2024", "Wed Mar 20 2024", "Fri May 10 2024", "Mon Aug 05 2024", "Mon Nov 25 2024"]); // All valid dates
         expect(sortDatesAscending('string')).toEqual('Input is not an array.');
-        expect(sortDatesAscending(invalidDatesArray)).toEqual(['Mon Jan 15 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Mar 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Fri May 10 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Aug 05 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Nov 25 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Invalid Date', 'Invalid Date']);
+        expect(sortDatesAscending(invalidDatesArray)).toEqual(["Mon Jan 15 2024", "Wed Mar 20 2024", "Fri May 10 2024", "Mon Aug 05 2024", "Mon Nov 25 2024", "Invalid Date", "Invalid Date"]);
     });
 
-    test('calculateAges', () => {
+    test('calculateAges', () => { // Challenge 5
         const array = [
             "1990-01-15",  // January 15, 1990
             "1985-03-20",  // March 20, 1985
@@ -106,7 +106,7 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(calculateAges(['string'])).toEqual(['Invalid Date']);
     });
 
-    test('groupDatesByYear', () => {
+    test('groupDatesByYear', () => { // Challenge 6
         const datesArray = [
             new Date(2024, 4, 12), 
             new Date(2024, 7, 20),
@@ -136,7 +136,7 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(checkLeapYears([2000, 1800, 'string', 1777])).toEqual([true, false, 'Invalid Date', false]);
     })
 
-    test('addDaysToDates', () => {
+    test('addDaysToDates', () => { // Challenge 9
         const datesArray = [
             new Date(2024, 4, 12), 
             new Date(2024, 7, 20),
@@ -151,7 +151,7 @@ describe('JavaScript Date Coding Challenges', () => {
         expect(addDaysToDates(datesArray, 2)).toEqual(['Tue May 14 2024', 'Thu Aug 22 2024', 'Thu Mar 30 2023', 'Sun Jun 30 2024', 'Tue Jul 22 1997', 'Tue May 24 1870', 'Sun Feb 23 1997'])
     })
 
-    test('getDayOfWeekForDates', () => {
+    test('getDayOfWeekForDates', () => { // Challenge 10
         const datesArray = [
             new Date(2024, 4, 12), 
             new Date(2024, 7, 20),
@@ -170,7 +170,7 @@ describe('JavaScript Date Coding Challenges', () => {
         ])).toEqual(['Sunday', 'Invalid Date', 'Tuesday']);
     })
 
-    test('findMostRecentDate', () => {
+    test('findMostRecentDate', () => { // Challenge 11
         const datesArray = [
             new Date(2024, 4, 12), 
             new Date(2024, 7, 20),
@@ -180,29 +180,29 @@ describe('JavaScript Date Coding Challenges', () => {
             new Date(1870, 4, 22),
             new Date(1997, 1, 21),
         ];
-        expect(findMostRecentDate(datesArray)).toBe('Tue Aug 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
+        expect(findMostRecentDate(datesArray)).toBe("Tue Aug 20 2024");
         expect(findMostRecentDate('string')).toBe('Input is not an array.');
         expect(findMostRecentDate()).toBe('Input is not an array.');
     })
 
-    test('getLastDayOfMonth', () => {
-        expect(getLastDayOfMonth(2024, 3)).toBe('Tue Apr 30 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
+    test('getLastDayOfMonth', () => { // Challenge 12
+        expect(getLastDayOfMonth(2024, 3)).toBe('Tue Apr 30 2024');
         expect(getLastDayOfMonth('string', 3)).toBe('Invalid year or month.');
         expect(getLastDayOfMonth()).toBe('Invalid year or month.');
     })
 
-    test('calculateDuration', () => {
+    test('calculateDuration', () => { // Challenge 13
         expect(calculateDuration('2024-11-2', '2024-11-18')).toEqual('Days between: 15, Hours between: 378, Minutes between: 22680');
         expect(calculateDuration('2024-11-2')).toEqual('Make sure you input 2 dates.');
         expect(calculateDuration()).toEqual('Make sure you input 2 dates.');
     })
 
-    test('listDatesOfWeekdayInMonth', () => {
-        expect(listDatesOfWeekdayInMonth(2024, 10, 3)).toEqual(['Wed Nov 06 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 13 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 20 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 27 2024 00:00:00 GMT-0700 (Mountain Standard Time)']);
+    test('listDatesOfWeekdayInMonth', () => { // Challenge 14
+        expect(listDatesOfWeekdayInMonth(2024, 10, 3)).toEqual(['Wed Nov 06 2024', 'Wed Nov 13 2024', 'Wed Nov 20 2024', 'Wed Nov 27 2024']);
         expect(listDatesOfWeekdayInMonth('string', 10, 3)).toEqual('Invalid Date');
     })
 
-    test('getDateDifferences', () => {
+    test('getDateDifferences', () => { // Challenge 15
         const dates = {
             date1: "2024-11-01",
             date2: "2024-10-15",

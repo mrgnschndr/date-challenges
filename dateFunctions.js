@@ -33,7 +33,7 @@ function filterRecentDates(datesArray) {
     }
     let today = new Date('2023-10-15T00:00:00Z');
     let newArr = datesArray.filter(check30);
-    return newArr.map((date) => (date.toString()));
+    return newArr.map((date) => (date.toDateString()));
     function check30(date) {
         let checkDate = new Date(date).setUTCHours(0, 0, 0);
         let difference = (today - checkDate) / (1000 * 60 * 60 * 24);
@@ -41,15 +41,15 @@ function filterRecentDates(datesArray) {
     }
 }
 
-const datesArray = [
-    new Date(2023, 9, 13),  
-    new Date(2024, 2, 20),  
-    new Date(2023, 9, 3),  
-    new Date(2024, 7, 5),   
-    new Date(2024, 10, 25) 
-  ];
+// const datesArray = [
+//     new Date(2023, 9, 13),  
+//     new Date(2024, 2, 20),  
+//     new Date(2023, 9, 3),  
+//     new Date(2024, 7, 5),   
+//     new Date(2024, 10, 25) 
+//   ];
 
-console.log(filterRecentDates(datesArray));
+// console.log(filterRecentDates(datesArray));
 
 // Challenge 3: Get Month Names
 // Given an array of `Date` objects, return an array of month names for each date.
@@ -97,7 +97,7 @@ function sortDatesAscending(datesArray) {
     finalArray = [];
     for (i = 0; i < sortedTimestamps.length; i++) {
         sortedTimestamps[i] = new Date(sortedTimestamps[i]);
-        finalArray[i] = sortedTimestamps[i].toString();
+        finalArray[i] = sortedTimestamps[i].toDateString();
     }
     return finalArray;
     
@@ -260,7 +260,7 @@ function addDaysToDates(datesArray, numDays) {
     }
     return datesArray.map((date) => {
         newDate = date.getDate() + numDays;
-        console.log(new Date(date.setDate(newDate)).toDateString());
+        // console.log(new Date(date.setDate(newDate)).toDateString());
         return (new Date(date.setDate(newDate))).toDateString();
     })
 }
@@ -290,7 +290,7 @@ function getDayOfWeekForDates(datesArray) {
         if (!(Object.prototype.toString.call(date) === '[object Date]')) {
             return 'Invalid Date';
         } else {
-            console.log(date);
+            // console.log(date);
             let index = date.getDay();
             return daysOfWeek[index];
     }});
@@ -320,8 +320,8 @@ function findMostRecentDate(datesArray) {
         }
     );
     let mostRecent = Math.max(...timestampArr); // Spread syntax - "expands" an array into its elements
-    console.log('Most Recent', mostRecent);
-    return (new Date(mostRecent).toString());
+    // console.log('Most Recent', mostRecent);
+    return (new Date(mostRecent).toDateString());
 }
 
 // Test helper below - successful console.log!
@@ -345,7 +345,7 @@ function getLastDayOfMonth(year, month) {
     if (isNaN(year) || isNaN(month)) {
         return 'Invalid year or month.';
     }
-    return (new Date(year, month + 1, 0)).toString();
+    return (new Date(year, month + 1, 0)).toDateString();
 }
 
 // console.log(getLastDayOfMonth(2024, 3));
@@ -382,7 +382,7 @@ function listDatesOfWeekdayInMonth(year, month, weekday) {
     for (i = 0; i < lastDay; i++) {
         let checkDay = date.getDay();
         if (checkDay == weekday) {
-            newArr.push(new Date(date).toString());
+            newArr.push(new Date(date).toDateString());
         }
         date.setDate(i + 1);
     }
