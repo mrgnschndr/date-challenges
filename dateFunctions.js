@@ -382,7 +382,7 @@ function listDatesOfWeekdayInMonth(year, month, weekday) {
     for (i = 0; i < lastDay; i++) {
         let checkDay = date.getDay();
         if (checkDay == weekday) {
-            newArr.push(new Date(date).toString());
+            newArr.push(new Date(date).toDateString());
         }
         date.setDate(i + 1);
     }

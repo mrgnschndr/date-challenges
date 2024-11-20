@@ -198,7 +198,7 @@ describe('JavaScript Date Coding Challenges', () => {
     })
 
     test('listDatesOfWeekdayInMonth', () => { // Challenge 14
-        expect(listDatesOfWeekdayInMonth(2024, 10, 3)).toEqual(['Wed Nov 06 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 13 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 20 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Nov 27 2024 00:00:00 GMT-0700 (Mountain Standard Time)']);
+        expect(listDatesOfWeekdayInMonth(2024, 10, 3)).toEqual(['Wed Nov 06 2024', 'Wed Nov 13 2024', 'Wed Nov 20 2024', 'Wed Nov 27 2024']);
         expect(listDatesOfWeekdayInMonth('string', 10, 3)).toEqual('Invalid Date');
     })
 
