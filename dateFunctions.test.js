@@ -186,7 +186,7 @@ describe('JavaScript Date Coding Challenges', () => {
     })
 
     test('getLastDayOfMonth', () => { // Challenge 12
-        expect(getLastDayOfMonth(2024, 3)).toBe('Tue Apr 30 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
+        expect(getLastDayOfMonth(2024, 3)).toBe('Tue Apr 30 2024');
         expect(getLastDayOfMonth('string', 3)).toBe('Invalid year or month.');
         expect(getLastDayOfMonth()).toBe('Invalid year or month.');
     })

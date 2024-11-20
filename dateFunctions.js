@@ -345,7 +345,7 @@ function getLastDayOfMonth(year, month) {
     if (isNaN(year) || isNaN(month)) {
         return 'Invalid year or month.';
     }
-    return (new Date(year, month + 1, 0)).toString();
+    return (new Date(year, month + 1, 0)).toDateString();
 }
 
 // console.log(getLastDayOfMonth(2024, 3));
