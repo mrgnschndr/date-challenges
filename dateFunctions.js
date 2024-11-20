@@ -321,7 +321,7 @@ function findMostRecentDate(datesArray) {
     );
     let mostRecent = Math.max(...timestampArr); // Spread syntax - "expands" an array into its elements
     // console.log('Most Recent', mostRecent);
-    return (new Date(mostRecent).toString());
+    return (new Date(mostRecent).toDateString());
 }
 
 // Test helper below - successful console.log!

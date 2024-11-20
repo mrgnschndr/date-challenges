@@ -180,7 +180,7 @@ describe('JavaScript Date Coding Challenges', () => {
             new Date(1870, 4, 22),
             new Date(1997, 1, 21),
         ];
-        expect(findMostRecentDate(datesArray)).toBe('Tue Aug 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)');
+        expect(findMostRecentDate(datesArray)).toBe("Tue Aug 20 2024");
         expect(findMostRecentDate('string')).toBe('Input is not an array.');
         expect(findMostRecentDate()).toBe('Input is not an array.');
     })
