@@ -46,7 +46,7 @@ describe('JavaScript Date Coding Challenges', () => {
             new Date(2024, 10, 25) 
           ];
         expect(filterRecentDates('string')).toBe('Input is not an array.');
-        expect(filterRecentDates(datesArray)).toEqual(['Fri Oct 13 2023 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Tue Oct 03 2023 00:00:00 GMT-0600 (Mountain Daylight Time)']);
+        expect(filterRecentDates(datesArray)).toEqual(["Fri Oct 13 2023", "Tue Oct 03 2023"]);
     });
 
     test('getMonthNames', () => { // Challenge 3

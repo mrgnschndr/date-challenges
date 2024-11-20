@@ -33,7 +33,7 @@ function filterRecentDates(datesArray) {
     }
     let today = new Date('2023-10-15T00:00:00Z');
     let newArr = datesArray.filter(check30);
-    return newArr.map((date) => (date.toString()));
+    return newArr.map((date) => (date.toDateString()));
     function check30(date) {
         let checkDate = new Date(date).setUTCHours(0, 0, 0);
         let difference = (today - checkDate) / (1000 * 60 * 60 * 24);
