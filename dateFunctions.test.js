@@ -86,9 +86,9 @@ describe('JavaScript Date Coding Challenges', () => {
             'string',
             new Date(2024, 10, 25),
         ];
-        expect(sortDatesAscending(datesArray)).toEqual(['Mon Jan 15 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Mar 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Fri May 10 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Aug 05 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Nov 25 2024 00:00:00 GMT-0700 (Mountain Standard Time)']); // All valid dates
+        expect(sortDatesAscending(datesArray)).toEqual(["Mon Jan 15 2024", "Wed Mar 20 2024", "Fri May 10 2024", "Mon Aug 05 2024", "Mon Nov 25 2024"]); // All valid dates
         expect(sortDatesAscending('string')).toEqual('Input is not an array.');
-        expect(sortDatesAscending(invalidDatesArray)).toEqual(['Mon Jan 15 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Wed Mar 20 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Fri May 10 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Aug 05 2024 00:00:00 GMT-0600 (Mountain Daylight Time)', 'Mon Nov 25 2024 00:00:00 GMT-0700 (Mountain Standard Time)', 'Invalid Date', 'Invalid Date']);
+        expect(sortDatesAscending(invalidDatesArray)).toEqual(["Mon Jan 15 2024", "Wed Mar 20 2024", "Fri May 10 2024", "Mon Aug 05 2024", "Mon Nov 25 2024", "Invalid Date", "Invalid Date"]);
     });
 
     test('calculateAges', () => { // Challenge 5
